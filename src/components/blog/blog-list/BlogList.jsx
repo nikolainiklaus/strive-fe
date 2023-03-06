@@ -11,7 +11,7 @@ const BlogList = (props) => {
   useEffect(() => {
     async function fetchPosts() {
       try {
-        const response = await fetch("http://localhost:3001/blogposts");
+        const response = await fetch(process.env.REACT_APP_URL);
         const data = await response.json();
         setPosts(data);
       } catch (error) {
