@@ -7,11 +7,13 @@ import { useState, useEffect } from "react";
 const BlogList = (props) => {
   const [posts, setPosts] = useState([]);
   const apiURL = process.env.REACT_APP_URL
+  console.log(apiURL);
 
   useEffect(() => {
     async function fetchPosts() {
       try {
         const response = await fetch(`${apiURL}/blogposts`);
+        // const response = await fetch("http://localhost:3001/blogposts");
         const data = await response.json();
         setPosts(data);
       } catch (error) {
